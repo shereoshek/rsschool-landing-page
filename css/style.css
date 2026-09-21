@@ -11,6 +11,129 @@
   --color-border-inverse: #665f55;
 }
 
+/*!!! Dark theme*/
+
+body.dark-theme {
+  --color-text-primary: #e1d4c9;
+  --color-text-inverse: #e1d4c9;
+  --color-accent: #b0907a;
+
+  --color-background: #292826;
+  --color-container: #403f3d;
+  --color-overlay: rgba(41, 40, 38, 0.8);
+
+  --color-border-primary: #665f55;
+  --color-border-inverse: #c1b6ad;
+}
+
+/*!!! Dark theme switch*/
+
+body.dark-theme .theme-switch {
+  border-color: #665f55;
+  background-color: #403f3d;
+}
+
+body.dark-theme .theme-switch-light {
+  background-color: #403f3d;
+}
+
+body.dark-theme .theme-switch-dark {
+  background-color: #b0907a;
+}
+
+/*!!! Dark menu icon*/
+
+body.dark-theme .menu-link img {
+  filter: brightness(0) saturate(100%) invert(86%) sepia(8%) saturate(500%)
+    hue-rotate(330deg) brightness(96%) contrast(90%);
+}
+
+/*!!! Dark slider icons*/
+
+body.dark-theme .slider-button img {
+  filter: brightness(0) saturate(100%) invert(86%) sepia(8%) saturate(500%)
+    hue-rotate(330deg) brightness(96%) contrast(90%);
+}
+
+/*!!! Dark primary button icon*/
+
+body.dark-theme .button-icon img {
+  filter: brightness(0) saturate(100%) invert(86%) sepia(8%) saturate(500%)
+    hue-rotate(330deg) brightness(96%) contrast(90%);
+}
+
+/*!!! Dark contact icons*/
+
+body.dark-theme .footer-contact-link img {
+  filter: brightness(0) saturate(100%) invert(86%) sepia(8%) saturate(500%)
+    hue-rotate(330deg) brightness(96%) contrast(90%);
+}
+
+/*!!! Dark app buttons*/
+
+body.dark-theme .store-button-icon-default {
+  display: none;
+}
+
+body.dark-theme .store-button-icon-hover {
+  display: block;
+}
+
+body.dark-theme .store-button {
+  border-color: #665f55;
+}
+
+body.dark-theme .store-button:hover {
+  background-color: #665f55;
+}
+
+/*!!! Dark slider pagination*/
+
+body.dark-theme .slider-pagination-item {
+  background-color: #665f55;
+}
+
+body.dark-theme .slider-pagination-item-active {
+  background-color: #e1d4c9;
+}
+
+body.dark-theme .navigation-menu-link img {
+  filter: brightness(0) saturate(100%) invert(86%) sepia(8%) saturate(500%)
+    hue-rotate(330deg) brightness(96%) contrast(90%);
+}
+
+/*!!! Dark menu categories*/
+
+body.dark-theme .category-button {
+  color: #e1d4c9;
+  border-color: #665f55;
+  background-color: transparent;
+}
+
+/*!!! Active category*/
+
+body.dark-theme .category-button-active {
+  background-color: #403f3d;
+  border-color: transparent;
+}
+
+/*!!! Hover category*/
+
+body.dark-theme .category-button:hover {
+  background-color: #403f3d;
+  border-color: transparent;
+}
+
+body.dark-theme .load-more img{
+  filter: brightness(0) saturate(100%) invert(86%) sepia(8%) saturate(500%)
+    hue-rotate(330deg) brightness(96%) contrast(90%);
+}
+
+body.dark-theme .load-more:hover {
+  background-color: #665f55;
+  border-color: transparent;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -1148,7 +1271,7 @@ img {
     max-width: 520px;
   }
 
-  .hero-content .button{
+  .hero-content .button {
     width: 200px;
     height: 54px;
   }

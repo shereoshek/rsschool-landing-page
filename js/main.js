@@ -21,3 +21,35 @@ if (burger && navigation) {
     })
   })
 }
+
+const themeSwitch = document.querySelector('.theme-switch')
+const logo = document.querySelector('.header-logo img')
+const moonIcon = document.querySelector('.theme-switch-dark img')
+
+function setTheme(theme) {
+  const isDark = theme === 'dark'
+
+  document.body.classList.toggle('dark-theme', isDark)
+
+  if (logo) {
+    logo.src = isDark ? './img/logo-dark.png' : './img/logo.png'
+  }
+
+  if (moonIcon) {
+    moonIcon.src = isDark
+      ? './img/icons/Moon-hover.svg'
+      : './img/icons/Moon.svg'
+  }
+
+  localStorage.setItem('theme', theme)
+}
+
+const savedTheme = localStorage.getItem('theme')
+
+setTheme(savedTheme === 'dark' ? 'dark' : 'light')
+
+themeSwitch?.addEventListener('click', () => {
+  const isDark = document.body.classList.contains('dark-theme')
+
+  setTheme(isDark ? 'light' : 'dark')
+})
