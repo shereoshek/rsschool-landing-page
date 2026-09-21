@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resource — Coffee House</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./img/logo.png" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header-container">
+        <a class="header-logo" href="./index.html">
+          <img src="./img/logo.png" alt="Resource Coffee House" />
+        </a>
+
+        <nav class="navigation">
+          <ul class="navigation-list">
+            <li class="navigation-item">
+              <a class="navigation-link" href="#favorite">Favorite coffee</a>
+            </li>
+            <li class="navigation-item">
+              <a class="navigation-link" href="#about">About</a>
+            </li>
+            <li class="navigation-item">
+              <a class="navigation-link" href="#mobile-app">Mobile app</a>
+            </li>
+            <li class="navigation-item">
+              <a class="navigation-link" href="#contact">Contact us</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            class="theme-switch"
+            type="button"
+            aria-label="Switch color theme"
+          >
+            <span class="theme-switch-light">
+              <img src="./img/icons/Sun.png" alt="Ligth theme button" />
+            </span>
+            <span class="theme-switch-dark">
+              <img src="./img/icons/Moon.svg" alt="Dark theme button" />
+            </span>
+          </button>
+
+          <a class="menu-link" href="./menu.html">
+            <span>Menu</span>
+            <img src="./img/icons/coffee-cup.png" alt="coffe cup icon" />
+          </a>
+
+          <button
+            class="burger"
+            type="button"
+            aria-label="Open navigation menu"
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <video
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="./img/img-hero.jpg"
+        >
+          <source src="./img/latte-art-video.mp4" type="video/mp4" />
+        </video>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <span class="accent">Enjoy</span> premium coffee at our charming
+            cafe
+          </h1>
+
+          <p class="hero-description">
+            With its inviting atmosphere and delicious coffee options, the
+            Coffee House Resource is a popular destination for coffee lovers and
+            those seeking a warm and inviting space to enjoy their favorite
+            beverage.
+          </p>
+
+          <a class="button button-primary" href="./menu.html">
+            <span>Menu</span>
+            <span class="button-icon">
+              <img src="./img/icons/coffee-cup.png" alt="coffe cup icon" />
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section class="favorite" id="favorite">
+        <div class="container">
+          <h2 class="section-title">
+            Choose your <span class="accent">favorite</span> coffee
+          </h2>
+
+          <div class="favorite-slider">
+            <button
+              class="slider-button slider-button-prev"
+              type="button"
+              aria-label="Previous coffee"
+            >
+              <img src="./img/icons/arrow.png" alt="Arrow left button" />
+            </button>
+
+            <div class="favorite-viewport">
+              <div class="favorite-track">
+                <article class="coffee-card">
+                  <img
+                    class="coffee-card-image"
+                    src="./img/coffee-slider-1.png"
+                    alt="S'mores Frappuccino"
+                  />
+
+                  <h3 class="coffee-card-title">S'mores Frappuccino</h3>
+
+                  <p class="coffee-card-description">
+                    This new drink takes an espresso and mixes it with brown
+                    sugar and cinnamon before being topped with oat milk.
+                  </p>
+
+                  <p class="coffee-card-price">$5.50</p>
+                </article>
+
+                <article class="coffee-card">
+                  <img
+                    class="coffee-card-image"
+                    src="./img/coffee-slider-2.png"
+                    alt="Caramel Macchiato"
+                  />
+
+                  <h3 class="coffee-card-title">Caramel Macchiato</h3>
+
+                  <p class="coffee-card-description">
+                    Fragrant and unique classic, with espresso, rich
+                    caramel-peanut syrup, vanilla cream and whipped thick foam.
+                  </p>
+
+                  <p class="coffee-card-price">$5.00</p>
+                </article>
+
+                <article class="coffee-card">
+                  <img
+                    class="coffee-card-image"
+                    src="./img/coffee-slider-3.png"
+                    alt="Ice coffee"
+                  />
+
+                  <h3 class="coffee-card-title">Ice coffee</h3>
+
+                  <p class="coffee-card-description">
+                    A popular summer drink that tones and invigorates. Prepared
+                    from coffee, milk and ice.
+                  </p>
+
+                  <p class="coffee-card-price">$4.50</p>
+                </article>
+              </div>
+            </div>
+
+            <button
+              class="slider-button slider-button-next"
+              type="button"
+              aria-label="Next coffee"
+            >
+              <img src="./img/icons/arrow.png" alt="Arrow rigth button" />
+            </button>
+          </div>
+
+          <div class="slider-pagination" aria-hidden="true">
+            <span
+              class="slider-pagination-item slider-pagination-item-active"
+            ></span>
+            <span class="slider-pagination-item"></span>
+            <span class="slider-pagination-item"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="container">
+          <h2 class="section-title about-title">
+            Resource is
+            <span class="accent">the perfect and cozy place</span>
+            where you can enjoy a variety of hot beverages, relax, catch up with
+            friends, or get some work done.
+          </h2>
+
+          <div class="about-grid">
+            <div class="about-item about-item-large">
+              <img
+                src="./img/about-1.jpg"
+                alt="Woman enjoying coffee in a coffee house"
+              />
+            </div>
+
+            <div class="about-item">
+              <img
+                src="./img/about-2.jpg"
+                alt="Man enjoying coffee in a coffee house"
+              />
+            </div>
+
+            <div class="about-item">
+              <img
+                src="./img/about-3.jpg"
+                alt="Coffee cup in a cozy coffee house"
+              />
+            </div>
+
+            <div class="about-item about-item-large">
+              <img
+                src="./img/about-4.jpg"
+                alt="Couple enjoying coffee together"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mobile-app" id="mobile-app">
+        <div class="container mobile-app-container">
+          <div class="mobile-app-content">
+            <h2 class="mobile-app-title">
+              <span class="accent">Download</span> our app
+              <br />
+              to start ordering
+            </h2>
+
+            <p class="mobile-app-description">
+              Download the Resource app today and experience the comfort of
+              ordering your favorite coffee from wherever you are.
+            </p>
+
+            <div class="mobile-app-buttons">
+              <a
+                class="store-button"
+                href="#"
+                aria-label="Download on the App Store"
+              >
+                <span class="store-button-icons" aria-hidden="true">
+                  <img
+                    src="./img/icons/apple.png"
+                    alt="Apple store icon"
+                    class="store-button-icon store-button-icon-default"
+                  />
+                  <img
+                    src="./img/icons/apple-hover.png"
+                    alt="Apple Store icon alt"
+                    class="store-button-icon store-button-icon-hover"
+                  />
+                </span>
+
+                <span class="store-button-text">
+                  <span class="store-button-caption"> Available on the </span>
+                  <span class="store-button-name"> App Store </span>
+                </span>
+              </a>
+
+              <a
+                class="store-button"
+                href="#"
+                aria-label="Get it on Google Play"
+              >
+                <span class="store-button-icons" aria-hidden="true">
+                  <img
+                    src="./img/icons/google.png"
+                    alt="Google Play icon"
+                    class="store-button-icon store-button-icon-default"
+                  />
+                  <img
+                    src="./img/icons/google-hover.png"
+                    alt="Google Play icon alt"
+                    class="store-button-icon store-button-icon-hover"
+                  />
+                </span>
+
+                <span class="store-button-text">
+                  <span class="store-button-caption"> Available on </span>
+                  <span class="store-button-name"> Google Play </span>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <div class="mobile-app-image">
+            <img
+              src="./img/mobile-screens.png"
+              alt="Resource mobile application screens"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="container footer-container">
+        <div class="footer-social">
+          <h2 class="footer-title">
+            Sip, Savor, Smile.<br />
+            <span class="accent">It's coffee time!</span>
+          </h2>
+
+          <div class="footer-social-links">
+            <a class="social-link" href="#" aria-label="Twitter">
+              <span>𝕏</span>
+            </a>
+
+            <a class="social-link" href="#" aria-label="Instagram">
+              <img
+                class="social-link-icon social-link-icon-default"
+                src="./img/icons/instagram.png"
+                alt="Instagramm button"
+              />
+              <img
+                class="social-link-icon social-link-icon-hover"
+                src="./img/icons/instagram-hover.png"
+                alt="Instagramm button alt"
+              />
+            </a>
+
+            <a class="social-link" href="#" aria-label="Facebook">
+              <span>f</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-contacts">
+          <h3 class="footer-contacts-title">Contact us</h3>
+
+          <ul class="footer-contacts-list">
+            <li class="footer-contact">
+              <a class="footer-contact-link" href="#">
+                <img src="./img/icons/pin-alt.png" alt="Location" />
+                <span>8558 Green Rd., LA</span>
+              </a>
+            </li>
+
+            <li class="footer-contact">
+              <a class="footer-contact-link" href="tel:+16035550123">
+                <img
+                  class="footer-contact-icon"
+                  src="./img/icons/phone.png"
+                  alt="Phone"
+                />
+                <span>+1 (603) 555-0123</span>
+              </a>
+            </li>
+
+            <li class="footer-contact">
+              <span class="footer-contact-link">
+                <img
+                  class="footer-contact-icon"
+                  src="./img/icons/clock.png"
+                  alt="Clock"
+                />
+                <span>Mon-Sat: 9:00-23:00</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
