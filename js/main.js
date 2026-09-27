@@ -112,9 +112,14 @@ if (slider) {
 
 const menuGrid = document.querySelector('.menu-grid')
 const menuCategories = document.querySelectorAll('.menu-category')
+const loadMoreButton = document.querySelector('.load-more')
 
-if (menuGrid && menuCategories.length) {
+if (menuGrid && menuCategories.length && loadMoreButton) {
   let products = []
+  let activeCategory = 'coffee'
+  let isExpanded = false
+
+  const initialCardsCount = 4
 
   async function loadProducts() {
     try {
@@ -125,16 +130,15 @@ if (menuGrid && menuCategories.length) {
       }
 
       products = await response.json()
-
-      renderProducts('coffee')
+      renderProducts()
     } catch (error) {
       console.error('Error loading products:', error)
     }
   }
 
-  function renderProducts(category) {
+  function renderProducts() {
     const filteredProducts = products.filter(
-      (product) => product.category === category,
+      (product) => product.category === activeCategory,
     )
 
     menuGrid.innerHTML = filteredProducts
@@ -158,19 +162,45 @@ if (menuGrid && menuCategories.length) {
         `,
       )
       .join('')
+
+    updateCardsVisibility()
+  }
+
+  function updateCardsVisibility() {
+    const cards = menuGrid.querySelectorAll('.menu-card')
+    const isMobile = window.innerWidth <= 768
+    const visibleCount =
+      isMobile && !isExpanded ? initialCardsCount : cards.length
+
+    cards.forEach((card, index) => {
+      card.style.display = index < visibleCount ? '' : 'none'
+    })
+
+    const hasHiddenCards = cards.length > initialCardsCount
+
+    loadMoreButton.style.display =
+      isMobile && hasHiddenCards && !isExpanded ? 'flex' : 'none'
   }
 
   menuCategories.forEach((button) => {
     button.addEventListener('click', () => {
-      const category = button.dataset.category
+      activeCategory = button.dataset.category
+      isExpanded = false
 
       menuCategories.forEach((item) => {
         item.classList.toggle('menu-category-active', item === button)
       })
 
-      renderProducts(category)
+      renderProducts()
     })
   })
+
+  loadMoreButton.addEventListener('click', () => {
+    isExpanded = true
+    updateCardsVisibility()
+  })
+
+  window.addEventListener('resize', updateCardsVisibility)
 
   loadProducts()
 }

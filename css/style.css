@@ -1574,12 +1574,6 @@ img {
     font-size: 22px;
   }
 
-  /*!!! Hide extra cards*/
-
-  .menu-card:nth-child(n + 5) {
-    display: none;
-  }
-
   /*!!! Load more*/
 
   .load-more {
@@ -2000,22 +1994,28 @@ img {
   }
 
   .menu-card {
-    width: 300px;
-    height: 450px;
+    width: 100%;
+    max-width: 348px;
+    height: auto;
     margin: 0 auto;
   }
 
-  /*!!! Card image*/
+  .menu-card-image-wrapper {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 30px 30px 0 0;
+  }
 
   .menu-card-image {
     display: block;
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 30px 30px 0 0;
   }
-
+  
   /*!!! Card content*/
 
   .menu-card-content {
