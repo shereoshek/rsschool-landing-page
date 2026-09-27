@@ -2054,3 +2054,43 @@ img {
     height: 16px;
   }
 }
+
+/*!!! Menu responsive improvements */
+
+@media (max-width: 1000px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .menu-card {
+    height: auto;
+  }
+
+  .menu-card-content {
+    height: auto;
+    min-height: 190px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .menu-card {
+    width: 100%;
+    max-width: 348px;
+    margin: 0 auto;
+  }
+
+  .menu-card-image-wrapper {
+    height: 300px;
+  }
+
+  .menu-card-content {
+    min-height: 196px;
+    padding: 24px;
+  }
+}

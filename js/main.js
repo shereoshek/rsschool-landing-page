@@ -109,3 +109,68 @@ if (slider) {
     setInterval(showNextSlide, 5000)
   }
 }
+
+const menuGrid = document.querySelector('.menu-grid')
+const menuCategories = document.querySelectorAll('.menu-category')
+
+if (menuGrid && menuCategories.length) {
+  let products = []
+
+  async function loadProducts() {
+    try {
+      const response = await fetch('./js/products.json')
+
+      if (!response.ok) {
+        throw new Error('Failed to load products')
+      }
+
+      products = await response.json()
+
+      renderProducts('coffee')
+    } catch (error) {
+      console.error('Error loading products:', error)
+    }
+  }
+
+  function renderProducts(category) {
+    const filteredProducts = products.filter(
+      (product) => product.category === category,
+    )
+
+    menuGrid.innerHTML = filteredProducts
+      .map(
+        (product) => `
+          <article class="menu-card">
+            <div class="menu-card-image-wrapper">
+              <img
+                class="menu-card-image"
+                src="${product.image}"
+                alt="${product.name}"
+              />
+            </div>
+
+            <div class="menu-card-content">
+              <h2 class="menu-card-title">${product.name}</h2>
+              <p class="menu-card-description">${product.description}</p>
+              <p class="menu-card-price">$${product.price}</p>
+            </div>
+          </article>
+        `,
+      )
+      .join('')
+  }
+
+  menuCategories.forEach((button) => {
+    button.addEventListener('click', () => {
+      const category = button.dataset.category
+
+      menuCategories.forEach((item) => {
+        item.classList.toggle('menu-category-active', item === button)
+      })
+
+      renderProducts(category)
+    })
+  })
+
+  loadProducts()
+}
