@@ -449,6 +449,7 @@ img {
 .favorite-track {
   display: flex;
   width: max-content;
+  transition: transform 0.5s ease-in-out;
 }
 
 .coffee-card {
