@@ -53,3 +53,59 @@ themeSwitch?.addEventListener('click', () => {
 
   setTheme(isDark ? 'light' : 'dark')
 })
+
+const slider = document.querySelector('.favorite-slider')
+
+if (slider) {
+  const viewport = slider.querySelector('.favorite-viewport')
+  const track = slider.querySelector('.favorite-track')
+  const slides = track?.querySelectorAll('.coffee-card')
+  const prevButton = slider.querySelector('.slider-button-prev')
+  const nextButton = slider.querySelector('.slider-button-next')
+  const pagination = document.querySelector('.slider-pagination')
+  const paginationItems = pagination?.querySelectorAll(
+    '.slider-pagination-item',
+  )
+
+  if (viewport && track && slides?.length) {
+    let currentSlide = 0
+
+    function updateSlider() {
+      const offset = currentSlide * viewport.clientWidth
+      track.style.transform = `translateX(-${offset}px)`
+
+      paginationItems?.forEach((item, index) => {
+        item.classList.toggle(
+          'slider-pagination-item-active',
+          index === currentSlide,
+        )
+      })
+    }
+
+    function showNextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length
+      updateSlider()
+    }
+
+    function showPrevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length
+      updateSlider()
+    }
+
+    nextButton?.addEventListener('click', showNextSlide)
+    prevButton?.addEventListener('click', showPrevSlide)
+
+    paginationItems?.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        currentSlide = index
+        updateSlider()
+      })
+    })
+
+    window.addEventListener('resize', updateSlider)
+
+    updateSlider()
+
+    setInterval(showNextSlide, 5000)
+  }
+}

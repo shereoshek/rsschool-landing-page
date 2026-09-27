@@ -124,7 +124,7 @@ body.dark-theme .category-button:hover {
   border-color: transparent;
 }
 
-body.dark-theme .load-more img{
+body.dark-theme .load-more img {
   filter: brightness(0) saturate(100%) invert(86%) sepia(8%) saturate(500%)
     hue-rotate(330deg) brightness(96%) contrast(90%);
 }
@@ -1287,11 +1287,33 @@ img {
   }
 
   .favorite-slider {
-    padding: 0 70px;
+    position: relative;
+    padding: 0 10px;
   }
 
-  .favorite-card {
+  .slider-button {
+    z-index: 1;
+  }
+
+  .favorite-viewport {
+    position: relative;
+    z-index: 0;
     width: 100%;
+  }
+
+  .favorite-track {
+    width: 100%;
+  }
+
+  .coffee-card {
+    width: 100%;
+  }
+
+  .coffee-card-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
   }
 
   /*!!! About*/
