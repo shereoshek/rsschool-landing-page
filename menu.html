@@ -134,6 +134,48 @@
           </button>
         </div>
       </section>
+
+      <!--!!! Product modal-->
+      <div class="modal-overlay" hidden>
+        <div
+          class="modal-window"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+        >
+          <div class="modal-image-wrapper">
+            <img class="modal-image" src="" alt="" />
+          </div>
+
+          <div class="modal-content">
+            <h2 class="modal-title" id="modal-title"></h2>
+            <p class="modal-description"></p>
+
+            <div class="modal-parameter">
+              <p class="modal-parameter-title">Size</p>
+              <div class="modal-size-options"></div>
+            </div>
+
+            <div class="modal-parameter">
+              <p class="modal-parameter-title">Additives</p>
+              <div class="modal-additives-options"></div>
+            </div>
+
+            <div class="modal-total">
+              <span>Total:</span>
+              <span class="modal-price"></span>
+            </div>
+
+            <p class="modal-disclaimer">
+              <span class="modal-info-icon">ⓘ</span>
+              The total price depends on the selected size and additives. After
+              adding the item, you can review it in My order.
+            </p>
+
+            <button class="modal-close" type="button">Close</button>
+          </div>
+        </div>
+      </div>
     </main>
 
     <!--!!! Footer-->

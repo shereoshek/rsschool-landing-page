@@ -203,4 +203,160 @@ if (menuGrid && menuCategories.length && loadMoreButton) {
   window.addEventListener('resize', updateCardsVisibility)
 
   loadProducts()
+
+  //!!! Product modal
+
+  const modal = document.querySelector('.modal-overlay')
+  const modalImage = document.querySelector('.modal-image')
+  const modalTitle = document.querySelector('.modal-title')
+  const modalDescription = document.querySelector('.modal-description')
+  const modalSizes = document.querySelector('.modal-size-options')
+  const modalAdditives = document.querySelector('.modal-additives-options')
+  const modalPrice = document.querySelector('.modal-price')
+  const modalClose = document.querySelector('.modal-close')
+
+  let currentProduct = null
+  let selectedSize = 's'
+  let previousBodyPaddingRight = ''
+  let selectedAdditives = new Set()
+
+  function updateModalPrice() {
+    if (!currentProduct) return
+
+    const basePrice = Number(currentProduct.price)
+    const sizePrice = Number(currentProduct.sizes[selectedSize]['add-price'])
+
+    const additivesPrice = [...selectedAdditives].reduce(
+      (total, index) =>
+        total + Number(currentProduct.additives[index]['add-price']),
+      0,
+    )
+
+    modalPrice.textContent = `$${(
+      basePrice +
+      sizePrice +
+      additivesPrice
+    ).toFixed(2)}`
+  }
+
+  function renderModalOptions() {
+    modalSizes.innerHTML = Object.entries(currentProduct.sizes)
+      .map(
+        ([key, size]) => `
+          <button
+            class="modal-option ${
+              selectedSize === key ? 'modal-option-active' : ''
+            }"
+            type="button"
+            data-size="${key}"
+          >
+            <span class="modal-option-icon">${key.toUpperCase()}</span>
+            <span>${size.size}</span>
+          </button>
+        `,
+      )
+      .join('')
+
+    modalAdditives.innerHTML = currentProduct.additives
+      .map(
+        (additive, index) => `
+          <button
+            class="modal-option ${
+              selectedAdditives.has(index) ? 'modal-option-active' : ''
+            }"
+            type="button"
+            data-additive="${index}"
+          >
+            <span class="modal-option-icon">${index + 1}</span>
+            <span>${additive.name}</span>
+          </button>
+        `,
+      )
+      .join('')
+
+    updateModalPrice()
+  }
+
+  function openModal(product) {
+    currentProduct = product
+    selectedSize = Object.keys(product.sizes)[0]
+    selectedAdditives = new Set()
+
+    modalImage.src = product.image
+    modalImage.alt = product.name
+    modalTitle.textContent = product.name
+    modalDescription.textContent = product.description
+    renderModalOptions()
+
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth
+
+    previousBodyPaddingRight = document.body.style.paddingRight
+
+    document.body.style.paddingRight = `${scrollbarWidth}px`
+    document.body.style.overflow = 'hidden'
+
+    modal.hidden = false
+  }
+
+  function closeModal() {
+    modal.hidden = true
+    document.body.style.overflow = ''
+    document.body.style.paddingRight = previousBodyPaddingRight
+    currentProduct = null
+  }
+
+  menuGrid.addEventListener('click', (event) => {
+    const card = event.target.closest('.menu-card')
+
+    if (!card) return
+
+    const productName = card.querySelector('.menu-card-title')?.textContent
+    const product = products.find(
+      (item) => item.name === productName && item.category === activeCategory,
+    )
+
+    if (product) {
+      openModal(product)
+    }
+  })
+
+  modalSizes.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-size]')
+
+    if (!button || !currentProduct) return
+
+    selectedSize = button.dataset.size
+    renderModalOptions()
+  })
+
+  modalAdditives.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-additive]')
+
+    if (!button || !currentProduct) return
+
+    const index = Number(button.dataset.additive)
+
+    if (selectedAdditives.has(index)) {
+      selectedAdditives.delete(index)
+    } else {
+      selectedAdditives.add(index)
+    }
+
+    renderModalOptions()
+  })
+
+  modalClose.addEventListener('click', closeModal)
+
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      closeModal()
+    }
+  })
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !modal.hidden) {
+      closeModal()
+    }
+  })
 }
