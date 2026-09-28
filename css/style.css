@@ -129,6 +129,49 @@ body.dark-theme .load-more img {
     hue-rotate(330deg) brightness(96%) contrast(90%);
 }
 
+/*!!! Dark product modal*/
+
+body.dark-theme .modal-window {
+  background-color: var(--color-container);
+  color: var(--color-text-primary);
+}
+
+body.dark-theme .modal-option {
+  border-color: var(--color-border-primary);
+  background-color: transparent;
+  color: var(--color-text-primary);
+}
+
+body.dark-theme .modal-option-icon {
+  background-color: var(--color-border-primary);
+  color: var(--color-text-primary);
+}
+
+body.dark-theme .modal-option-active {
+  border-color: var(--color-background);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+body.dark-theme .modal-option-active .modal-option-icon {
+  background-color: var(--color-container);
+  color: var(--color-text-primary);
+}
+
+body.dark-theme .modal-option:hover {
+  border-color: var(--color-text-primary);
+}
+
+body.dark-theme .modal-close {
+  border-color: var(--color-border-primary);
+  color: var(--color-text-primary);
+}
+
+body.dark-theme .modal-close:hover {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
 body.dark-theme .load-more:hover {
   background-color: #665f55;
   border-color: transparent;
