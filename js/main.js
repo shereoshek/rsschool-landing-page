@@ -20,6 +20,17 @@ if (burger && navigation) {
       document.body.classList.remove('menu-open')
     })
   })
+
+  document.addEventListener('keydown', (event) => {
+    if (
+      event.key === 'Escape' &&
+      navigation.classList.contains('navigation-open')
+    ) {
+      burger.classList.remove('burger-open')
+      navigation.classList.remove('navigation-open')
+      document.body.classList.remove('menu-open')
+    }
+  })
 }
 
 const themeSwitch = document.querySelector('.theme-switch')

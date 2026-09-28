@@ -352,6 +352,7 @@ img {
   width: 18px;
   height: 2px;
   background-color: var(--color-text-primary);
+  transition: transform 0.3s ease;
 }
 
 .burger span:first-child {
@@ -1393,7 +1394,28 @@ img {
   }
 
   .navigation {
-    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: var(--color-background);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
   }
 
   .menu-link {
@@ -1424,20 +1446,10 @@ img {
   /*!!! Open navigation*/
 
   .navigation.navigation-open {
-    display: flex;
-
-    position: fixed;
-    inset: 0;
-
-    z-index: 1;
-
-    width: 100%;
-    height: 100vh;
-
-    background-color: var(--color-background);
-
-    justify-content: center;
-    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .navigation.navigation-open .navigation-list {
