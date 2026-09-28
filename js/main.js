@@ -211,7 +211,12 @@ if (menuGrid && menuCategories.length && loadMoreButton) {
     updateCardsVisibility()
   })
 
-  window.addEventListener('resize', updateCardsVisibility)
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      isExpanded = false
+    }
+    updateCardsVisibility()
+  })
 
   loadProducts()
 
