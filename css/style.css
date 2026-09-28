@@ -1847,6 +1847,37 @@ img {
   .menu + .footer {
     margin-top: 0;
   }
+
+  /*!!! Product modal adaptive */
+  .modal-overlay {
+    padding: 16px;
+  }
+
+  .modal-window {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 688px;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .modal-image-wrapper {
+    flex: 0 1 40%;
+    width: 40%;
+    max-width: 310px;
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .modal-content {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .modal-option {
+    max-width: 100%;
+  }
 }
 
 /*!!! Mobile 380px*/
@@ -2284,6 +2315,49 @@ img {
   .load-more-icon {
     width: 16px;
     height: 16px;
+  }
+
+  /*!!! Product modal adaptive */
+  .modal-overlay {
+    padding: 16px;
+  }
+
+  .modal-window {
+    width: 100%;
+    max-width: 342px;
+    padding: 16px;
+  }
+
+  .modal-image-wrapper {
+    display: none;
+  }
+
+  .modal-content {
+    width: 100%;
+  }
+
+  .modal-title {
+    margin-bottom: 12px;
+  }
+
+  .modal-description {
+    margin-bottom: 20px;
+  }
+
+  .modal-parameter {
+    margin-bottom: 20px;
+  }
+
+  .modal-total {
+    margin-top: 0;
+  }
+
+  .modal-disclaimer {
+    margin: 8px 0 32px;
+  }
+
+  .modal-close {
+    min-height: 44px;
   }
 }
 
